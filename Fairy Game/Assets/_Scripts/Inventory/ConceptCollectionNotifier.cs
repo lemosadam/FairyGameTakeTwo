@@ -21,6 +21,9 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public string conceptMechanic;
     public int slotTag;
 
+    public InventoryManagerWithEvents inventoryManager;
+    public ShopManager shopManager;
+
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,15 +42,48 @@ public void ConceptBoughtFromShop()
     {
         if (OnConceptCollected != null)
         {
-            conceptObject = this.gameObject;
+            OnTradeButton1Click();
+            
+            //conceptObject = shopConcept;
             //conceptObject.SetActive(false);
-            OnConceptCollected(this);
+            //OnConceptCollected(conceptObject);
             this.isInInventory = true;
         }
     }
 
+    public void OnTradeButton1Click()
+    {
+
+        Debug.Log("Trade Button 1 clicked");
+        // put what's in the shop on the counter
+        // put what's in the inventory in the shop
+        // put what's on the counter in the inventory
+        foreach (GameObject shopConcept in shopManager.shopConcepts)
+        {
+            if (shopConcept.CompareTag("Slot1"))
+            {
+                //conceptObjectToBeTraded = shopConcept;
+               // shopConcepts.Remove(shopConcept);
+                //objectOnCounter.Add(shopConcept);
+                foreach (GameObject concept in inventoryManager.concepts)
+                {
+                    if (concept.CompareTag("Slot1"))
+                    {
+                        inventoryManager.concepts.Remove(concept);
+                        //shopConcepts.Add(concept);
+                        inventoryManager.concepts.Add(shopConcept);
+
+                        //objectOnCounter.Remove(shopConcept);
+                    }
+                }
 
 
-    
+            }
+        }
+
+    }
+
+
+
 
 }

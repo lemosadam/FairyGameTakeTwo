@@ -8,9 +8,10 @@ public class ShopManager : MonoBehaviour
     public List<GameObject> shopConcepts = new List<GameObject>();
     public List<GameObject> objectOnCounter = new List<GameObject>();
     public InventoryManagerWithEvents inventoryManager;
-    public GameObject conceptObjectToBeTraded; 
+    public GameObject conceptObjectToBeTraded;
+    public ConceptCollectionNotifier conCN;
 
-    //public static event Action<ConceptCollectionNotifier> Slot1Filled;
+    //public static event Action<ConceptCollectionNotifier> OnConceptRemovedFromShop;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class ShopManager : MonoBehaviour
 
     public void OnTradeButton1Click()
     {
+
         Debug.Log("Trade Button 1 clicked");
         // put what's in the shop on the counter
         // put what's in the inventory in the shop
@@ -37,7 +39,7 @@ public class ShopManager : MonoBehaviour
                     {
                         inventoryManager.concepts.Remove(concept);
                         shopConcepts.Add(concept);
-                        //inventoryManager.concepts.Add(shopConcept);
+                        inventoryManager.concepts.Add(shopConcept);
                         
                         objectOnCounter.Remove(shopConcept);
                     }
