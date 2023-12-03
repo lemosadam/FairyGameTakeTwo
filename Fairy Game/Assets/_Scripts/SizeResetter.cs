@@ -21,7 +21,12 @@ public class SizeResetter : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Transform playerTransform = other.transform;
-            playerTransform.localScale = Vector3.one;
+            if(playerTransform.localScale.x <0)
+            {
+                playerTransform.localScale = new Vector3(-1, 1, 1);
+            }
+            else { playerTransform.localScale = new Vector3(1, 1, 1); }
+            
         }
     }
 }

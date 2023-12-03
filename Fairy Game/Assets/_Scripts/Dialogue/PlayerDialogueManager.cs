@@ -43,7 +43,6 @@ public class PlayerDialogueManager : MonoBehaviour
     // Trigger Enter/Exit used to determine if interaction with NPC is possible
     void OnTriggerEnter2D(Collider2D aOther)
     {
-        Debug.Log("Player near NPC");
         var articyReferenceComp = aOther.GetComponent<ArticyReference>();
         if (articyReferenceComp)
         {
