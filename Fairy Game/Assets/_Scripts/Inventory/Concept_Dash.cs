@@ -13,6 +13,7 @@ public class Concept_Dash : ConceptCollectionNotifier
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         conceptMechanic = "dash";
         conceptName = "Unfounded Optimism";
+        paragraph = "Let’s make this work. I wish we had met years ago. We made such a good team. Maybe this is the beginning of something special.";
     }
 
 

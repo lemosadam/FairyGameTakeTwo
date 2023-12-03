@@ -10,6 +10,7 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public GameObject conceptObject;
     public Sprite conceptIcon;
     public bool isInInventory = false;
+    public bool isInShop;
 
     public static event Action<ConceptCollectionNotifier> OnConceptCollected;
     public static event Action<ConceptCollectionNotifier> OnConceptTraded;
@@ -20,25 +21,34 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public string conceptName;
     public string conceptMechanic;
     public int slotTag;
+    public string paragraph;
 
     public InventoryManagerWithEvents inventoryManager;
     public ShopManager shopManager;
 
 
-    public void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        
-        if (OnConceptCollected != null)
+        if(isInInventory == true)
         {
-            conceptObject = this.gameObject;
-            //conceptObject.SetActive(false);
+            //gameObject.SetActive(false);
             OnConceptCollected(this);
-            this.isInInventory = true;
-            
+        }
+
+        if (isInShop == true)
+        {
+            OnConceptTraded(this);
         }
     }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+            conceptObject = this.gameObject;
+            //OnConceptCollected(this);
+            this.isInInventory = true;
+            //conceptObject.SetActive(false);
+    }
 
-public void ConceptBoughtFromShop()
+    public void ConceptBoughtFromShop()
     {
         if (OnConceptCollected != null)
         {

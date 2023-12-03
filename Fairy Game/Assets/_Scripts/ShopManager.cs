@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -21,18 +22,14 @@ public class ShopManager : MonoBehaviour
 
     public void OnTradeButton1Click()
     {
-
-        Debug.Log("Trade Button 1 clicked");
-        // put what's in the shop on the counter
-        // put what's in the inventory in the shop
-        // put what's on the counter in the inventory
         foreach (GameObject shopConcept in shopConcepts)
         {
             if (shopConcept.CompareTag("Slot1"))
             {
-                conceptObjectToBeTraded = shopConcept;
+                //conceptObjectToBeTraded = shopConcept;
                 shopConcepts.Remove(shopConcept);
                 objectOnCounter.Add(shopConcept);
+                //concept.isInShop = false;
                 foreach (GameObject concept in inventoryManager.concepts)
                 {
                     if (concept.CompareTag("Slot1"))
@@ -40,16 +37,15 @@ public class ShopManager : MonoBehaviour
                         inventoryManager.concepts.Remove(concept);
                         shopConcepts.Add(concept);
                         inventoryManager.concepts.Add(shopConcept);
-                        
+                        //conceptTraded.isInInventory = true;
                         objectOnCounter.Remove(shopConcept);
                     }
                 }
-                
-
             }
         }
 
     }
+
 
     private void ConceptAddedToShop(ConceptCollectionNotifier concept)
     {

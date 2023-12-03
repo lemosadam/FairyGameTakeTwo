@@ -9,6 +9,7 @@ public class InventoryManagerWithEvents : MonoBehaviour
     public List<GameObject> concepts = new List<GameObject>();
 
     //public static event Action<ConceptCollectionNotifier> Slot1Filled;
+    public static event Action<ConceptCollectionNotifier> OnConceptRemovedFromInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,11 @@ public class InventoryManagerWithEvents : MonoBehaviour
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
     }
 
-
+    private void Update()
+    {
+       
+    }
+    
     private void ConceptAddedToInventory(ConceptCollectionNotifier concept)
     {
        //check if Slot 1 is filled
