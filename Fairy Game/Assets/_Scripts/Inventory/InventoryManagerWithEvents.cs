@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class InventoryManagerWithEvents : MonoBehaviour
 {
-    public List<GameObject> concepts = new List<GameObject>();
-
-    //public static event Action<ConceptCollectionNotifier> Slot1Filled;
-    public static event Action<ConceptCollectionNotifier> OnConceptRemovedFromInventory;
+    public Dictionary<string,GameObject> concepts = new Dictionary<string,GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +18,21 @@ public class InventoryManagerWithEvents : MonoBehaviour
     {
        
     }
-    
-    private void ConceptAddedToInventory(ConceptCollectionNotifier concept)
+
+
+    public void Exchange(string slottag, GameObject exchange)
+    {
+        concepts[slottag] = exchange; 
+        exchange.GetComponent<ConceptCollectionNotifier>().OnPurchased();
+    }
+
+    private void ConceptAddedToInventory(GameObject concept)
     {
        //check if Slot 1 is filled
         if (!IsInSlot1() && concept.CompareTag("Slot1"))
         {
-            Debug.Log("Player collected " + concept.conceptName);
-            concepts.Add(concept.conceptObject);
-            concept.conceptObject.SetActive(false);
+            Debug.Log("Player collected " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
+            concepts["Slot1"] = concept;
         }
         else
         {
@@ -39,9 +42,8 @@ public class InventoryManagerWithEvents : MonoBehaviour
         //check if Slot 2 is filled
         if (!IsInSlot2() && concept.CompareTag("Slot2"))
         {
-            Debug.Log("Player collected " + concept.conceptName);
-            concepts.Add(concept.conceptObject);
-            concept.conceptObject.SetActive(false);
+            Debug.Log("Player collected " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
+            concepts["Slot2"] = concept;
         }
         else
         {
@@ -51,9 +53,8 @@ public class InventoryManagerWithEvents : MonoBehaviour
         //check if Slot 3 is filled
         if (!IsInSlot3() && concept.CompareTag("Slot3"))
         {
-            Debug.Log("Player collected " + concept.conceptName);
-            concepts.Add(concept.conceptObject);
-            concept.conceptObject.SetActive(false);
+            Debug.Log("Player collected " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
+            concepts["Slot3"] = concept;
         }
         else
         {
@@ -63,9 +64,8 @@ public class InventoryManagerWithEvents : MonoBehaviour
         //check if Slot 4 is filled
         if (!IsInSlot4() && concept.CompareTag("Slot4"))
         {
-            Debug.Log("Player collected " + concept.conceptName);
-            concepts.Add(concept.conceptObject);
-            concept.conceptObject.SetActive(false);
+            Debug.Log("Player collected " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
+            concepts["Slot4"] = concept;
         }
         else
         {
@@ -78,48 +78,20 @@ public class InventoryManagerWithEvents : MonoBehaviour
     
     private bool IsInSlot1()
     {
-        foreach (GameObject concept in concepts)
-        {
-            if (concept.CompareTag("Slot1"))
-            {
-                return true;
-            }
-        }
-        return false;
+        return concepts.ContainsKey("Slot1");
     }
     private bool IsInSlot2()
     {
-        foreach (GameObject concept in concepts)
-        {
-            if (concept.CompareTag("Slot2"))
-            {
-                return true;
-            }
-        }
-        return false;
+        return concepts.ContainsKey("Slot2");
     }
     private bool IsInSlot3()
     {
-        foreach (GameObject concept in concepts)
-        {
-            if (concept.CompareTag("Slot3"))
-            {
-                return true;
-            }
-        }
-        return false;
+        return concepts.ContainsKey("Slot3");
     }
 
     private bool IsInSlot4()
     {
-        foreach (GameObject concept in concepts)
-        {
-            if (concept.CompareTag("Slot4"))
-            {
-                return true;
-            }
-        }
-        return false;
+        return concepts.ContainsKey("Slot4");
     }
 
 }

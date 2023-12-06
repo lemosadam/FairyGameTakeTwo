@@ -18,14 +18,14 @@ namespace SupanthaPaul
 			DashingIsAllowed = false;
 			ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
         }
-        private void ConceptAddedToInventory(ConceptCollectionNotifier concept)
+        private void ConceptAddedToInventory(GameObject concept)
         {
-            if (concept.conceptMechanic == "dash")
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "dash")
             {
                 DashingIsAllowed = true;
 
             }
-            if (concept.conceptMechanic == "jump")
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
             {
                 JumpingIsAllowed = true;
             }

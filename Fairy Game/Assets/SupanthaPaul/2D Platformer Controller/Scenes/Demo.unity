@@ -963,10 +963,10 @@ MonoBehaviour:
   Slot2: {fileID: 1904926853}
   Slot3: {fileID: 1737182142}
   Slot4: {fileID: 236173626}
-  paragraph1: {fileID: 0}
-  paragraph2: {fileID: 0}
-  paragraph3: {fileID: 0}
-  paragraph4: {fileID: 0}
+  paragraph1: {fileID: 223810697}
+  paragraph2: {fileID: 1215227418}
+  paragraph3: {fileID: 4387064}
+  paragraph4: {fileID: 1370088361}
 --- !u!1 &307065470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1191,7 @@ MonoBehaviour:
   conceptMechanic: 
   slotTag: 0
   paragraph: 
+  inventoryLocation: {x: 1000, y: 1000}
   inventoryManager: {fileID: 0}
   shopManager: {fileID: 0}
 --- !u!4 &442826692
@@ -1467,6 +1468,7 @@ MonoBehaviour:
   conceptMechanic: 
   slotTag: 0
   paragraph: 
+  inventoryLocation: {x: 1000, y: 1000}
   inventoryManager: {fileID: 0}
   shopManager: {fileID: 0}
 --- !u!58 &569728678
@@ -1768,7 +1770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05610f0d39cc39a4da077da05c931a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  concepts: []
 --- !u!1 &612136950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,9 +2523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7f49ef2cf5d9441a98fa2b0bc62290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopConcepts:
-  - {fileID: 569728676}
-  objectOnCounter: []
   inventoryManager: {fileID: 609323615}
   conceptObjectToBeTraded: {fileID: 0}
   conCN: {fileID: 0}

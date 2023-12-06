@@ -10,11 +10,11 @@ public class SlotsDisplayer : MonoBehaviour
     public Image Slot2;
     public Image Slot3;
     public Image Slot4;
-
-    public TextMeshPro paragraph1;
-    public TextMeshPro paragraph2;
-    public TextMeshPro paragraph3;
-    public TextMeshPro paragraph4;
+    
+    public TextMeshProUGUI paragraph1;
+    public TextMeshProUGUI paragraph2;
+    public TextMeshProUGUI paragraph3;
+    public TextMeshProUGUI paragraph4;
 
 
 
@@ -24,59 +24,73 @@ public class SlotsDisplayer : MonoBehaviour
     void Start()
     {
         ConceptCollectionNotifier.OnConceptCollected += SpriteDisplayedInInventory;
-        ConceptCollectionNotifier.OnConceptCollected += TextDisplayedInLeter;
+        ConceptCollectionNotifier.OnConceptCollected += TextDisplayedInLetter;
+
+        ConceptCollectionNotifier.OnConceptPurchased += SpriteDisplayedInInventory;
+        ConceptCollectionNotifier.OnConceptPurchased += TextDisplayedInLetter;
     }
 
-    private void SpriteDisplayedInInventory(ConceptCollectionNotifier concept)
+    private void ConceptCollectionNotifier_OnConceptTraded(GameObject obj)
     {
+        throw new System.NotImplementedException();
+    }
+
+    private void SpriteDisplayedInInventory(GameObject concept)
+    {
+        //Sprite sprite
+        Sprite sprite = concept.GetComponent<ConceptCollectionNotifier>().conceptIcon;
         if (concept != null && concept.CompareTag("Slot1"))
         {
-            Slot1.sprite = concept.conceptIcon;
+            Slot1.sprite = sprite;
 
         }
         if (concept != null && concept.CompareTag("Slot2"))
         {
-            Slot2.sprite = concept.conceptIcon;
+            Slot2.sprite = sprite;
 
         }
         if (concept != null && concept.CompareTag("Slot3"))
         {
-            Slot3.sprite = concept.conceptIcon;
+            Slot3.sprite = sprite;
             Debug.Log("Slot 3 in inventory");
 
         }
         if (concept != null && concept.CompareTag("Slot4"))
         {
-            Slot4.sprite = concept.conceptIcon;
+            Slot4.sprite = sprite;
 
         }
     }
 
-    private void TextDisplayedInLeter(ConceptCollectionNotifier concept)
+    private void TextDisplayedInLetter(GameObject concept)
     {
+        
+        string paragraph = concept.GetComponent<ConceptCollectionNotifier>().paragraph;
         if (concept != null && concept.CompareTag("Slot1"))
         {
-            paragraph1.text = concept.paragraph;
+            paragraph1.text = paragraph;
 
         }
 
         if (concept != null && concept.CompareTag("Slot2"))
         {
-            paragraph2.text = concept.paragraph;
+            paragraph2.text = paragraph;
 
         }
 
         if (concept != null && concept.CompareTag("Slot3"))
         {
-            paragraph3.text = concept.paragraph;
+            paragraph3.text = paragraph;
 
         }
 
         if (concept != null && concept.CompareTag("Slot4"))
         {
-            paragraph4.text = concept.paragraph;
+            paragraph4.text = paragraph;
 
         }
+
+        Debug.Log("Concept collected or traded: " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
     }
 
 

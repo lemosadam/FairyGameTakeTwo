@@ -83,6 +83,8 @@ namespace SupanthaPaul
 			m_dustParticle = GetComponentInChildren<ParticleSystem>();
 
             ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
+            ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
+			ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
         }
 
 		private void FixedUpdate()
@@ -288,14 +290,22 @@ namespace SupanthaPaul
 			Gizmos.DrawWireSphere((Vector2)transform.position + grabLeftOffset, grabCheckRadius);
 		}
 
-		private void ConceptAddedToInventory(ConceptCollectionNotifier concept)
+		private void ConceptAddedToInventory(GameObject concept)
 		{
-			if (concept.conceptMechanic == "shrink")
+			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "shrink")
 			{
 				gameObject.transform.localScale = gameObject.transform.localScale/1.75f;
 
 			}
 		}
 
+        private void ConceptRemovedFromInventory(GameObject concept)
+        {
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "shrink")
+            {
+                gameObject.transform.localScale = gameObject.transform.localScale * 1.75f;
+
+            }
+        }
     }
 }

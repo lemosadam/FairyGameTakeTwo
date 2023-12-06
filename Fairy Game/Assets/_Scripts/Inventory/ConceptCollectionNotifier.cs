@@ -12,16 +12,17 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public bool isInInventory = false;
     public bool isInShop;
 
-    public static event Action<ConceptCollectionNotifier> OnConceptCollected;
-    public static event Action<ConceptCollectionNotifier> OnConceptTraded;
-    public static event Action<ConceptCollectionNotifier> Trading;
+    public static event Action<GameObject> OnConceptCollected;
+    public static event Action<GameObject> OnConceptPurchased;
+    public static event Action<GameObject> OnConceptSold;
 
 
-    [SerializeField]
+    [SerializeField] //consider adding this info to a seperate script
     public string conceptName;
     public string conceptMechanic;
     public int slotTag;
     public string paragraph;
+    public Vector2 inventoryLocation = new Vector2(1000, 1000);
 
     public InventoryManagerWithEvents inventoryManager;
     public ShopManager shopManager;
@@ -29,71 +30,22 @@ public class ConceptCollectionNotifier : MonoBehaviour
 
     private void Update()
     {
-        if(isInInventory == true)
-        {
-            //gameObject.SetActive(false);
-            OnConceptCollected(this);
-        }
-
-        if (isInShop == true)
-        {
-            OnConceptTraded(this);
-        }
+        
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-            conceptObject = this.gameObject;
-            //OnConceptCollected(this);
+            conceptObject = gameObject;
+            OnConceptCollected(gameObject);
             this.isInInventory = true;
-            //conceptObject.SetActive(false);
+            conceptObject.transform.position = inventoryLocation;
     }
-
-    public void ConceptBoughtFromShop()
+    public void OnPurchased()
     {
-        if (OnConceptCollected != null)
-        {
-            OnTradeButton1Click();
-            
-            //conceptObject = shopConcept;
-            //conceptObject.SetActive(false);
-            //OnConceptCollected(conceptObject);
-            this.isInInventory = true;
-        }
+        OnConceptPurchased(gameObject);
     }
-
-    public void OnTradeButton1Click()
+    public void OnSold()
     {
-
-        Debug.Log("Trade Button 1 clicked");
-        // put what's in the shop on the counter
-        // put what's in the inventory in the shop
-        // put what's on the counter in the inventory
-        foreach (GameObject shopConcept in shopManager.shopConcepts)
-        {
-            if (shopConcept.CompareTag("Slot1"))
-            {
-                //conceptObjectToBeTraded = shopConcept;
-               // shopConcepts.Remove(shopConcept);
-                //objectOnCounter.Add(shopConcept);
-                foreach (GameObject concept in inventoryManager.concepts)
-                {
-                    if (concept.CompareTag("Slot1"))
-                    {
-                        inventoryManager.concepts.Remove(concept);
-                        //shopConcepts.Add(concept);
-                        inventoryManager.concepts.Add(shopConcept);
-
-                        //objectOnCounter.Remove(shopConcept);
-                    }
-                }
-
-
-            }
-        }
-
+        OnConceptSold(gameObject);
     }
-
-
-
 
 }
