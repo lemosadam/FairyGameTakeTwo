@@ -17,6 +17,8 @@ namespace SupanthaPaul
         {
 			DashingIsAllowed = false;
 			ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
+            ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
+            ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
         }
         private void ConceptAddedToInventory(GameObject concept)
         {
@@ -31,7 +33,20 @@ namespace SupanthaPaul
             }
             
         }
-        public static float HorizontalRaw()
+        private void ConceptRemovedFromInventory(GameObject concept)
+        {
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "dash")
+            {
+                DashingIsAllowed = false;
+
+            }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
+            {
+                JumpingIsAllowed = false;
+            }
+        }
+
+            public static float HorizontalRaw()
 		{
 			return Input.GetAxisRaw(HorizontalInput);
 		}

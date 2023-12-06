@@ -20,9 +20,9 @@ public class InventoryManagerWithEvents : MonoBehaviour
     }
 
 
-    public void Exchange(string slottag, GameObject exchange)
+    public void Exchange(string slotTag, GameObject exchange)
     {
-        concepts[slottag] = exchange; 
+        concepts[slotTag] = exchange; 
         exchange.GetComponent<ConceptCollectionNotifier>().OnPurchased();
     }
 
