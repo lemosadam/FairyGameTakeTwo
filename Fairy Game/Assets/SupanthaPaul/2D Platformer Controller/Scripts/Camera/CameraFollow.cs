@@ -16,25 +16,23 @@ namespace SupanthaPaul
 		public Vector3 maxCamerabounds;
 
 
-		private void FixedUpdate()
-		{
-			Vector3 desiredPosition = target.localPosition + offset;
-			var localPosition = transform.localPosition;
-			Vector3 smoothedPosition = Vector3.Lerp(localPosition, desiredPosition, smoothSpeed);
-			localPosition = smoothedPosition;
+        private void FixedUpdate()
+        {
+            Vector3 desiredPosition = target.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = smoothedPosition;
 
-			// clamp camera's position between min and max
-			localPosition = new Vector3(
-				Mathf.Clamp(localPosition.x, minCamerabounds.x, maxCamerabounds.x),
-				Mathf.Clamp(localPosition.y, minCamerabounds.y, maxCamerabounds.y),
-				Mathf.Clamp(localPosition.z, minCamerabounds.z, maxCamerabounds.z)
-				);
-			transform.localPosition = localPosition;
-		}
+            // clamp camera's position between min and max
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, minCamerabounds.x, maxCamerabounds.x),
+                Mathf.Clamp(transform.position.y, minCamerabounds.y, maxCamerabounds.y),
+                Mathf.Clamp(transform.position.z, minCamerabounds.z, maxCamerabounds.z)
+            );
+        }
 
-		public void SetTarget(Transform targetToSet)
-		{
-			target = targetToSet;
-		}
-	}
+        public void SetTarget(Transform targetToSet)
+        {
+            target = targetToSet;
+        }
+    }
 }

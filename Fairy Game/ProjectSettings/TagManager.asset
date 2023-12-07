@@ -17,7 +17,7 @@ TagManager:
   - Water
   - UI
   - 
-  - Background
+  - 
   - Ground
   - Enemy
   - Player
@@ -25,7 +25,7 @@ TagManager:
   - PostProcessing
   - Foreground
   - Camera
-  - 
+  - Background
   - 
   - 
   - 

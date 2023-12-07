@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 0.3147075, g: 0.9811321, b: 0.22584549, a: 1}
@@ -101,8 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conceptObject: {fileID: 0}
   conceptIcon: {fileID: 21300000, guid: b15df857c690cb94f8da85d6a03217cc, type: 3}
+  isInInventory: 0
+  isInShop: 0
   conceptName: 
+  conceptMechanic: 
   slotTag: 0
+  paragraph: 
+  inventoryLocation: {x: 1000, y: 1000}
+  inventoryManager: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!58 &1844078216118650688
 CircleCollider2D:
   m_ObjectHideFlags: 0
