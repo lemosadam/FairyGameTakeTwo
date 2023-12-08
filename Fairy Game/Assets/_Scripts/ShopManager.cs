@@ -32,6 +32,33 @@ public class ShopManager : MonoBehaviour
         Debug.Log("Trade button 1 pressed");
     }
 
+    public void OnTradeButton2Click()
+    {
+        GameObject exchange = shopConcepts["Slot2"];
+        shopConcepts["Slot2"] = inventoryManager.concepts["Slot2"];
+        inventoryManager.concepts["Slot2"].GetComponent<ConceptCollectionNotifier>().OnSold();
+        inventoryManager.Exchange("Slot2", exchange);
+        Debug.Log("Trade button 2 pressed");
+    }
+
+    public void OnTradeButton3Click()
+    {
+        GameObject exchange = shopConcepts["Slot3"];
+        shopConcepts["Slot3"] = inventoryManager.concepts["Slot3"];
+        inventoryManager.concepts["Slot3"].GetComponent<ConceptCollectionNotifier>().OnSold();
+        inventoryManager.Exchange("Slot3", exchange);
+        Debug.Log("Trade button 3 pressed");
+    }
+
+    public void OnTradeButton4Click()
+    {
+        GameObject exchange = shopConcepts["Slot4"];
+        shopConcepts["Slot4"] = inventoryManager.concepts["Slot4"];
+        inventoryManager.concepts["Slot4"].GetComponent<ConceptCollectionNotifier>().OnSold();
+        inventoryManager.Exchange("Slot4", exchange);
+        Debug.Log("Trade button 4 pressed");
+    }
+
     private bool IsInSlot1()
     {
         return shopConcepts.ContainsKey("Slot1");

@@ -12,7 +12,7 @@ namespace SupanthaPaul
 		[SerializeField] private Transform groundCheck;
 		[SerializeField] private float groundCheckRadius;
 		[SerializeField] private LayerMask whatIsGround;
-		[SerializeField] private int extraJumpCount = 1;
+		public int extraJumpCount = 0;
 		[SerializeField] private GameObject jumpEffect;
 		[Header("Dashing")]
 		[SerializeField] public bool canDash = false;
@@ -24,7 +24,7 @@ namespace SupanthaPaul
 		[SerializeField] private GameObject dashEffect;
 
 		// Access needed for handling animation in Player script and other uses
-		[HideInInspector] public bool isGrounded;
+		/*[HideInInspector]*/ public bool isGrounded;
 		[HideInInspector] public float moveInput;
 		[HideInInspector] public bool canMove = true;
 		[HideInInspector] public bool isDashing = false;
@@ -44,6 +44,7 @@ namespace SupanthaPaul
 		private Rigidbody2D m_rb;
 		private ParticleSystem m_dustParticle;
 		public bool m_facingRight = true; //made public for Escher Stair
+		private bool m_isUpright = true;
 		private readonly float m_groundedRememberTime = 0.25f;
 		private float m_groundedRemember = 0f;
 		private int m_extraJumps;
@@ -58,9 +59,11 @@ namespace SupanthaPaul
 		private float m_wallStick = 0f;
 		private bool m_wallJumping = false;
 		private float m_dashCooldown;
+		private bool m_gravityInverted = false; //bool to check if gravity is inverted for inverse jump power
+        float invertedJumpForce;
 
-		// 0 -> none, 1 -> right, -1 -> left
-		private int m_onWallSide = 0;
+        // 0 -> none, 1 -> right, -1 -> left
+        private int m_onWallSide = 0;
 		private int m_playerSide = 1;
 
 
@@ -85,6 +88,7 @@ namespace SupanthaPaul
             ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
 			ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
+			GravityInverter.OnGravityToggled += ToggleGravity;
         }
 
 		private void FixedUpdate()
@@ -257,7 +261,7 @@ namespace SupanthaPaul
 				m_rb.AddForce(new Vector2(-m_onWallSide * wallClimbForce.x, wallClimbForce.y), ForceMode2D.Impulse);
 			}
 
-		}
+        }
 
 		void Flip()
 		{
@@ -266,6 +270,15 @@ namespace SupanthaPaul
 			scale.x *= -1;
 			transform.localScale = scale;
 		}
+
+		void Invert()
+		{
+			m_isUpright = !m_isUpright;
+            Vector3 scale = transform.localScale;
+			jumpForce = jumpForce * -1;
+            scale.y *= -1;
+            transform.localScale = scale;
+        }
 
 		void CalculateSides()
 		{
@@ -290,6 +303,7 @@ namespace SupanthaPaul
 			Gizmos.DrawWireSphere((Vector2)transform.position + grabLeftOffset, grabCheckRadius);
 		}
 
+		//shrink player, double jump
 		private void ConceptAddedToInventory(GameObject concept)
 		{
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "shrink")
@@ -297,7 +311,17 @@ namespace SupanthaPaul
 				gameObject.transform.localScale = gameObject.transform.localScale/1.75f;
 
 			}
-		}
+
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+            {
+				extraJumpCount = 1;
+
+            }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
+            {
+                
+            }
+        }
 
         private void ConceptRemovedFromInventory(GameObject concept)
         {
@@ -306,6 +330,22 @@ namespace SupanthaPaul
                 gameObject.transform.localScale = gameObject.transform.localScale * 1.75f;
 
             }
+            
+			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+            {
+                extraJumpCount = 0;
+
+            }
+			
         }
+
+		private void ToggleGravity()
+		{
+			m_rb.gravityScale = m_rb.gravityScale * -1;
+			m_gravityInverted = !m_gravityInverted;
+			Invert();
+			Debug.Log("Gravity inverted?" + m_rb.gravityScale);
+		}
+
     }
 }

@@ -1,4 +1,4 @@
-/*using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Articy.Unity;
@@ -110,4 +110,3 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         }
     }
 }
-*/

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using System;
 
 public class DoorScript : MonoBehaviour
 { 
@@ -13,6 +15,7 @@ public bool isPlayerAtDoor = false;
  public GameObject linkedDoor;
     public GameObject followCamera;
 
+    public static event Action OnTeleportComplete;
 void Start()
     {
     // Get the player GameObject
@@ -48,10 +51,14 @@ void Update()
     {
         // Perform door interaction logic here
         Debug.Log("Interacting with the door");
-            followCamera.transform.position = linkedDoor.transform.position;
-            player.transform.position = linkedDoor.transform.position;
-
+            Teleport();
     }
 }
-
+    public void Teleport()
+    {
+        followCamera.transform.position = linkedDoor.transform.position;
+        player.transform.position = linkedDoor.transform.position;
+        OnTeleportComplete();
+        Debug.Log("Teleport Complete");
+    }
 }

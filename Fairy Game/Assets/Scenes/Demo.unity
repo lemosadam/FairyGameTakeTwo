@@ -8929,7 +8929,7 @@ PrefabInstance:
     - target: {fileID: 1865938915375051438, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 384
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

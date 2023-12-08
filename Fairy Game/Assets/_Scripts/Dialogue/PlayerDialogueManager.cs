@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Articy.Unity;
@@ -43,7 +43,9 @@ public class PlayerDialogueManager : MonoBehaviour
     // Trigger Enter/Exit used to determine if interaction with NPC is possible
     void OnTriggerEnter2D(Collider2D aOther)
     {
+        Debug.Log("Player is near Fey");
         var articyReferenceComp = aOther.GetComponent<ArticyReference>();
+        
         if (articyReferenceComp)
         {
             availableDialogue = articyReferenceComp.reference.GetObject();
@@ -59,4 +61,3 @@ public class PlayerDialogueManager : MonoBehaviour
         }
     }
 }
-*/

@@ -31,7 +31,16 @@ namespace SupanthaPaul
             {
                 JumpingIsAllowed = true;
             }
-            
+
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+            {
+                JumpingIsAllowed = true;
+            }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
+            {
+                JumpingIsAllowed = true;
+            }
+
         }
         private void ConceptRemovedFromInventory(GameObject concept)
         {
@@ -44,6 +53,16 @@ namespace SupanthaPaul
             {
                 JumpingIsAllowed = false;
             }
+
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+            {
+                JumpingIsAllowed = false;
+            }
+
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
+            {
+                JumpingIsAllowed = false;
+            }
         }
 
             public static float HorizontalRaw()
@@ -53,7 +72,7 @@ namespace SupanthaPaul
 
 		public static bool Jump()
 		{
-			return Input.GetButtonDown(JumpInput) && JumpingIsAllowed;
+            return Input.GetButtonDown(JumpInput) && JumpingIsAllowed;
 		}
 
 		public static bool Dash()
