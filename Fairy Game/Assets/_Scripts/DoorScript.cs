@@ -58,7 +58,7 @@ void Update()
     {
         followCamera.transform.position = linkedDoor.transform.position;
         player.transform.position = linkedDoor.transform.position;
-        OnTeleportComplete();
-        Debug.Log("Teleport Complete");
+        //OnTeleportComplete();
+        //Debug.Log("Teleport Complete");
     }
 }

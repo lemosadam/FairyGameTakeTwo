@@ -9,6 +9,7 @@ TagManager:
   - Slot3
   - Slot4
   - Slot2
+  - dPlatform
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,7 @@ public class GravityInverter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DoorScript.OnTeleportComplete += InvertGravity;
+        //DoorScript.OnTeleportComplete += InvertGravity;
 
         player = GameObject.FindGameObjectWithTag("Player");
         followCamera = GameObject.Find("Follow Camera");
@@ -27,6 +27,15 @@ public class GravityInverter : MonoBehaviour
     void InvertGravity()
     {
         OnGravityToggled();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject == player)
+        {
+            Debug.Log("Collided");
+            OnGravityToggled();
+        }
     }
     
 }
