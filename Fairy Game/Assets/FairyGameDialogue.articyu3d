@@ -6,7 +6,7 @@
     "set_UseScriptSupport": "True",
     "ExportVersion": "1.2",
     "ObjectDefinitionsHash": "6CB0A45AB67BDD218F73A7D5995BD165D16BE14AD8BF39AF6211C2ED438FC6EC",
-    "ScriptFragmentsHash": "3089365100"
+    "ScriptFragmentsHash": "1655277000"
   },
   "Project": {
     "Name": "FairyGameDialogue",
@@ -2253,9 +2253,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000279",
@@ -2295,9 +2295,9 @@
               "Asset": "0x0000000000000000"
             },
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -2320,9 +2320,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000023E",
@@ -2358,7 +2358,7 @@
             "Text": "Yes, I have.",
             "ExternalId": "",
             "Position": {
-              "x": 425.0,
+              "x": 700.0,
               "y": 125.0
             },
             "ZIndex": 2.0,
@@ -2388,8 +2388,8 @@
                       "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x0100000000000273",
-                    "Target": "0x0100000000000271"
+                    "TargetPin": "0x0100000000000173",
+                    "Target": "0x010000000000016F"
                   }
                 ]
               }
@@ -2455,6 +2455,73 @@
         {
           "Type": "DialogueFragment",
           "Properties": {
+            "TechnicalName": "DFr_558FADD2",
+            "Id": "0x0100000000000245",
+            "Parent": "0x010000000000016F",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000000112",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
+            },
+            "Text": "Come to change your perspective?",
+            "ExternalId": "",
+            "Position": {
+              "x": 100.0,
+              "y": 250.0
+            },
+            "ZIndex": 0.0,
+            "Size": {
+              "w": 225.0,
+              "h": 200.0
+            },
+            "ShortId": 1435479506,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000246",
+                "Owner": "0x0100000000000245"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000247",
+                "Owner": "0x0100000000000245",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
+                    },
+                    "Label": "",
+                    "TargetPin": "0x010000000000018D",
+                    "Target": "0x010000000000018A"
+                  },
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x0100000000000273",
+                    "Target": "0x0100000000000271"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
             "TechnicalName": "DFr_5469D7D3",
             "Id": "0x010000000000019F",
             "Parent": "0x0100000000000197",
@@ -2463,9 +2530,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "So... You've finally awakened.",
             "ExternalId": "",
@@ -2495,9 +2562,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001A8",
@@ -2519,9 +2586,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "Where...? Where am I?",
             "ExternalId": "",
@@ -2551,9 +2618,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001B0",
@@ -2575,9 +2642,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "My home. You've been resting here a while.",
             "ExternalId": "",
@@ -2607,9 +2674,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001B7",
@@ -2618,9 +2685,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001BD",
@@ -2642,9 +2709,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -2674,9 +2741,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001C4",
@@ -2698,9 +2765,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -2730,9 +2797,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001CB",
@@ -2754,9 +2821,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "One who helps.",
             "ExternalId": "",
@@ -2786,9 +2853,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001D3",
@@ -2810,9 +2877,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "That remains to be seen.",
             "ExternalId": "",
@@ -2842,9 +2909,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001D3",
@@ -2866,9 +2933,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "You will remember soon enough.",
             "ExternalId": "",
@@ -2898,9 +2965,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001DB",
@@ -2922,9 +2989,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "You came to me in a moment of desperation with a need to... forget. To escape.",
             "ExternalId": "",
@@ -2954,9 +3021,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001E2",
@@ -2978,9 +3045,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "I agreed to help. I agreed to take away your pain and leave you with only the most important parts of you.",
             "ExternalId": "",
@@ -3010,9 +3077,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001E9",
@@ -3034,9 +3101,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "In return, I keep the rest.",
             "ExternalId": "",
@@ -3066,9 +3133,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001F0",
@@ -3090,9 +3157,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -3122,9 +3189,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001F8",
@@ -3146,9 +3213,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "The memories you no longer have use for will stay here. With me.",
             "ExternalId": "",
@@ -3178,9 +3245,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001FF",
@@ -3202,9 +3269,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -3234,9 +3301,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000206",
@@ -3258,9 +3325,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "Take this letter. It is empty now, but you may carry whatever within it whatever parts of you that you recover here.",
             "ExternalId": "",
@@ -3290,9 +3357,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000020D",
@@ -3314,9 +3381,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -3346,9 +3413,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000214",
@@ -3370,9 +3437,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "It is not my place to say. What you read in it before is what drove you here in the first place.",
             "ExternalId": "",
@@ -3402,9 +3469,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000021B",
@@ -3426,9 +3493,9 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "You may search out the truth in my halls if you like, but it will not be easy.",
             "ExternalId": "",
@@ -3458,9 +3525,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000222",
@@ -3482,9 +3549,9 @@
             "Speaker": "0x0100000000000166",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "But how will I know the truth once I’ve found it?",
             "ExternalId": "",
@@ -3519,8 +3586,8 @@
                       "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x010000000000022A",
-                    "Target": "0x0100000000000227"
+                    "TargetPin": "0x0100000000000239",
+                    "Target": "0x0100000000000237"
                   }
                 ]
               }
@@ -3538,15 +3605,15 @@
             "Speaker": "0x0100000000000112",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "Who's to say what is true?",
             "ExternalId": "",
             "Position": {
-              "x": 5175.0,
-              "y": 125.0
+              "x": 5475.0,
+              "y": 100.0
             },
             "ZIndex": 38.0,
             "Size": {
@@ -3575,75 +3642,8 @@
                       "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x0100000000000239",
-                    "Target": "0x0100000000000237"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_558FADD2",
-            "Id": "0x0100000000000245",
-            "Parent": "0x010000000000016F",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000000112",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "Text": "Come to change your perspective?",
-            "ExternalId": "",
-            "Position": {
-              "x": 100.0,
-              "y": 250.0
-            },
-            "ZIndex": 0.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 1435479506,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000246",
-                "Owner": "0x0100000000000245"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000247",
-                "Owner": "0x0100000000000245",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000187",
-                    "Target": "0x0100000000000184"
-                  },
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000018D",
-                    "Target": "0x010000000000018A"
+                    "TargetPin": "0x010000000000019B",
+                    "Target": "0x0100000000000197"
                   }
                 ]
               }
@@ -3659,9 +3659,9 @@
             "Target": "0x010000000000016F",
             "TargetPin": "0x0100000000000172",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "Text": "",
             "ExternalId": "",
@@ -3687,82 +3687,10 @@
         {
           "Type": "Condition",
           "Properties": {
-            "TechnicalName": "Cnd_69BDFF81",
-            "Id": "0x010000000000023C",
-            "Parent": "0x0100000000000197",
-            "DisplayName": "if FeyDialogue.Introduced = true",
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": -700.0,
-              "y": 25.0
-            },
-            "ZIndex": 42.0,
-            "Size": {
-              "w": 225.0,
-              "h": 100.0
-            },
-            "ShortId": 1774059393,
-            "Expression": "if FeyDialogue.Introduced = true",
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000023E",
-                "Owner": "0x010000000000023C"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000023F",
-                "Owner": "0x010000000000023C",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000268",
-                    "Target": "0x0100000000000265"
-                  }
-                ]
-              },
-              {
-                "Text": "",
-                "Id": "0x0100000000000240",
-                "Owner": "0x010000000000023C",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000001A2",
-                    "Target": "0x010000000000019F"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Condition",
-          "Properties": {
             "TechnicalName": "Cnd_7B9288B2",
             "Id": "0x0100000000000277",
             "Parent": "0x010000000000016F",
-            "DisplayName": "if FeyDialogue.ShopOpen = true",
+            "DisplayName": "FeyDialogue.ShopOpen == true",
             "Text": "",
             "ExternalId": "",
             "Position": {
@@ -3775,11 +3703,11 @@
               "h": 100.0
             },
             "ShortId": 2073200818,
-            "Expression": "if FeyDialogue.ShopOpen = true",
+            "Expression": "FeyDialogue.ShopOpen == true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3797,9 +3725,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000027F",
@@ -3815,9 +3743,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000246",
@@ -3829,53 +3757,71 @@
           }
         },
         {
-          "Type": "Instruction",
+          "Type": "Condition",
           "Properties": {
-            "TechnicalName": "Ins_0C892A1F",
-            "Id": "0x0100000000000237",
+            "TechnicalName": "Cnd_69BDFF81",
+            "Id": "0x010000000000023C",
             "Parent": "0x0100000000000197",
-            "DisplayName": "FeyDialogue.Introduced = true",
+            "DisplayName": "FeyDialogue.Introduced == true",
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 5475.0,
-              "y": 125.0
+              "x": -700.0,
+              "y": 25.0
             },
-            "ZIndex": 40.0,
+            "ZIndex": 42.0,
             "Size": {
               "w": 225.0,
               "h": 100.0
             },
-            "ShortId": 210315807,
-            "Expression": "FeyDialogue.Introduced = true",
+            "ShortId": 1774059393,
+            "Expression": "FeyDialogue.Introduced == true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
                 "Text": "",
-                "Id": "0x0100000000000239",
-                "Owner": "0x0100000000000237"
+                "Id": "0x010000000000023E",
+                "Owner": "0x010000000000023C"
               }
             ],
             "OutputPins": [
               {
                 "Text": "",
-                "Id": "0x010000000000023A",
-                "Owner": "0x0100000000000237",
+                "Id": "0x010000000000023F",
+                "Owner": "0x010000000000023C",
                 "Connections": [
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
-                    "TargetPin": "0x010000000000019B",
-                    "Target": "0x0100000000000197"
+                    "TargetPin": "0x0100000000000268",
+                    "Target": "0x0100000000000265"
+                  }
+                ]
+              },
+              {
+                "Text": "",
+                "Id": "0x0100000000000240",
+                "Owner": "0x010000000000023C",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
+                    },
+                    "Label": "",
+                    "TargetPin": "0x01000000000001A2",
+                    "Target": "0x010000000000019F"
                   }
                 ]
               }
@@ -3892,7 +3838,7 @@
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 700.0,
+              "x": 400.0,
               "y": 175.0
             },
             "ZIndex": 7.0,
@@ -3903,9 +3849,9 @@
             "ShortId": 2401230921,
             "Expression": "FeyDialogue.ShopOpen = true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3928,8 +3874,8 @@
                       "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x0100000000000173",
-                    "Target": "0x010000000000016F"
+                    "TargetPin": "0x0100000000000187",
+                    "Target": "0x0100000000000184"
                   }
                 ]
               }
@@ -3957,9 +3903,9 @@
             "ShortId": 1258569248,
             "Expression": "FeyDialogue.ShopOpen = false",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3977,13 +3923,67 @@
                   {
                     "Color": {
                       "a": 1.0,
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
+                    },
+                    "Label": "",
+                    "TargetPin": "0x0100000000000246",
+                    "Target": "0x0100000000000245"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Instruction",
+          "Properties": {
+            "TechnicalName": "Ins_0C892A1F",
+            "Id": "0x0100000000000237",
+            "Parent": "0x0100000000000197",
+            "DisplayName": "FeyDialogue.Introduced = true",
+            "Text": "",
+            "ExternalId": "",
+            "Position": {
+              "x": 5200.0,
+              "y": 175.0
+            },
+            "ZIndex": 40.0,
+            "Size": {
+              "w": 225.0,
+              "h": 100.0
+            },
+            "ShortId": 210315807,
+            "Expression": "FeyDialogue.Introduced = true",
+            "Color": {
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
+            },
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000239",
+                "Owner": "0x0100000000000237"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000023A",
+                "Owner": "0x0100000000000237",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
                       "r": 0.5764706,
                       "g": 0.75686276,
                       "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x0100000000000246",
-                    "Target": "0x0100000000000245"
+                    "TargetPin": "0x010000000000022A",
+                    "Target": "0x0100000000000227"
                   }
                 ]
               }
@@ -4273,6 +4273,11 @@
                 "Type": "DialogueFragment"
               },
               {
+                "Id": "0x0100000000000271",
+                "TechnicalName": "Ins_8F1FE049",
+                "Type": "Instruction"
+              },
+              {
                 "Id": "0x010000000000018A",
                 "TechnicalName": "DFr_16E756D3",
                 "Type": "DialogueFragment"
@@ -4281,11 +4286,6 @@
                 "Id": "0x0100000000000184",
                 "TechnicalName": "DFr_6180B154",
                 "Type": "DialogueFragment"
-              },
-              {
-                "Id": "0x0100000000000271",
-                "TechnicalName": "Ins_8F1FE049",
-                "Type": "Instruction"
               }
             ]
           },
@@ -4400,14 +4400,14 @@
                 "Type": "DialogueFragment"
               },
               {
-                "Id": "0x0100000000000227",
-                "TechnicalName": "DFr_E3F781C9",
-                "Type": "DialogueFragment"
-              },
-              {
                 "Id": "0x0100000000000237",
                 "TechnicalName": "Ins_0C892A1F",
                 "Type": "Instruction"
+              },
+              {
+                "Id": "0x0100000000000227",
+                "TechnicalName": "DFr_E3F781C9",
+                "Type": "DialogueFragment"
               }
             ]
           }

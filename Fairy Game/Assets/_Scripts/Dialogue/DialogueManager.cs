@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using Articy.Unity;
 using Articy.Unity.Interfaces;
 using Articy.Fairygamedialogue;
+using Articy.Fairygamedialogue.GlobalVariables;
+
 //using static UnityEngine.EventSystems.EventTrigger;
 
 public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
@@ -29,10 +31,13 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     // To check if we are currently showing the dialog ui interface
     public bool DialogueActive { get; set; }
 
+    public GameObject conceptShop;
+
     private ArticyFlowPlayer flowPlayer;
     void Start()
     {
         flowPlayer = GetComponent<ArticyFlowPlayer>();
+        
     }
 
     public void StartDialogue(IArticyObject aObject)
@@ -49,6 +54,11 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         DialogueActive = false;
         dialogueWidget.SetActive(DialogueActive);
         flowPlayer.FinishCurrentPausedObject();
+
+        if (ArticyGlobalVariables.Default.FeyDialogue.ShopOpen == true)
+        {
+            conceptShop.SetActive(true);
+        }
     }
 
     public void OnFlowPlayerPaused(IFlowObject aObject)
