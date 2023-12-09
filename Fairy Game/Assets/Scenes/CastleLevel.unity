@@ -430,8 +430,8 @@ MonoBehaviour:
   startOn:
     instanceId: 0
     referencingMode: 0
-    lowId: 367
-    highId: 16777216
+    lowId: 0
+    highId: 0
   pauseOn: 4
   ignoreInvalidBranches: 1
   continuouslyRecalculateBranches: 1
@@ -5649,7 +5649,7 @@ MonoBehaviour:
   reference:
     instanceId: 0
     referencingMode: 0
-    lowId: 367
+    lowId: 407
     highId: 16777216
 --- !u!58 &1219958132
 CircleCollider2D:
@@ -48958,12 +48958,12 @@ PrefabInstance:
     - target: {fileID: 1865938915375051426, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.55
+      value: -9.16
       objectReference: {fileID: 0}
     - target: {fileID: 1865938915375051426, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.45
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 1865938915375051426, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
