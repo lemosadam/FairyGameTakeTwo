@@ -24,10 +24,7 @@ public class GravityInverter : MonoBehaviour
         
     }
 
-    void InvertGravity()
-    {
-        OnGravityToggled();
-    }
+    
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,5 +34,14 @@ public class GravityInverter : MonoBehaviour
             OnGravityToggled();
         }
     }
-    
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == player)
+        {
+            Debug.Log("Left Anti gravity");
+            OnGravityToggled();
+        }
+    }
+
 }

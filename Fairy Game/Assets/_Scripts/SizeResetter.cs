@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SupanthaPaul;
 
 public class SizeResetter : MonoBehaviour
 {
+
+    private Transform originalPlayerTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,18 +19,21 @@ public class SizeResetter : MonoBehaviour
     {
 
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            originalPlayerTransform.localScale = other.transform.localScale;
 
+        }
+    }
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
+            Transform currentPlayerTransform = other.transform;
+            currentPlayerTransform.localScale = originalPlayerTransform.localScale;
             
-            Transform playerTransform = other.transform;
-            if(playerTransform.localScale.x <0)
-            {
-                playerTransform.localScale = new Vector3(-1, 1, 1);
-            }
-            else { playerTransform.localScale = new Vector3(1, 1, 1); }
             
         }
     }

@@ -59,7 +59,7 @@ namespace SupanthaPaul
 		private float m_wallStick = 0f;
 		private bool m_wallJumping = false;
 		private float m_dashCooldown;
-		private bool m_gravityInverted = false; //bool to check if gravity is inverted for inverse jump power
+		private bool m_gravityInverted; //bool to check if gravity is inverted for inverse jump power
         float invertedJumpForce;
 
         // 0 -> none, 1 -> right, -1 -> left
@@ -67,8 +67,12 @@ namespace SupanthaPaul
 		private int m_playerSide = 1;
 
 		public bool canWalkBackground = false;
+		public Vector3 currentPlayerSize;
+		
+
 		void Start()
 		{
+			currentPlayerSize = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 			// create pools for particles
 			PoolManager.instance.CreatePool(dashEffect, 2);
 			PoolManager.instance.CreatePool(jumpEffect, 2);
@@ -85,10 +89,14 @@ namespace SupanthaPaul
 			m_rb = GetComponent<Rigidbody2D>();
 			m_dustParticle = GetComponentInChildren<ParticleSystem>();
 
+
+           m_gravityInverted = false;
+
             ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
 			ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
-			GravityInverter.OnGravityToggled += ToggleGravity;
+			GravityInverter.OnGravityToggled += InvertGravity;
+            //GravityInverter.OnGravityToggled += RevertGravity;
         }
 
 		private void FixedUpdate()
@@ -308,8 +316,8 @@ namespace SupanthaPaul
 		{
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "shrink")
 			{
-				gameObject.transform.localScale = gameObject.transform.localScale/1.75f;
-
+				currentPlayerSize = gameObject.transform.localScale / 1.75f;
+				gameObject.transform.localScale = currentPlayerSize;
 			}
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
@@ -331,8 +339,8 @@ namespace SupanthaPaul
         {
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "shrink")
             {
-                gameObject.transform.localScale = gameObject.transform.localScale * 1.75f;
-
+                currentPlayerSize = gameObject.transform.localScale * 1.75f;
+                gameObject.transform.localScale = currentPlayerSize;
             }
             
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
@@ -347,13 +355,25 @@ namespace SupanthaPaul
 
         }
 
-		private void ToggleGravity()
+		private void InvertGravity()
 		{
-			m_rb.gravityScale = m_rb.gravityScale * -1;
-			m_gravityInverted = !m_gravityInverted;
-			Invert();
-			Debug.Log("Gravity inverted?" + m_rb.gravityScale);
+            m_rb.gravityScale = m_rb.gravityScale * -1;
+            m_gravityInverted = !m_gravityInverted;
+            Invert();
+            Debug.Log("Gravity inverted?" + m_rb.gravityScale);
+            
 		}
+
+        /*private void RevertGravity()
+        {
+            if (m_gravityInverted == true)
+            {
+                m_rb.gravityScale = m_rb.gravityScale * -1;
+                m_gravityInverted = !m_gravityInverted;
+                Invert();
+                Debug.Log("Gravity inverted?" + m_rb.gravityScale);
+            }
+        }*/
 
     }
 }
