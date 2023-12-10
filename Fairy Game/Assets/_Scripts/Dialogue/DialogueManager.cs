@@ -32,11 +32,13 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     public bool DialogueActive { get; set; }
 
     public GameObject conceptShop;
+    public GameObject letterButtonObj;
 
     private ArticyFlowPlayer flowPlayer;
     void Start()
     {
         flowPlayer = GetComponent<ArticyFlowPlayer>();
+        InventoryManagerWithEvents.OnLetterCompleted += TriggerLetterCompleted;
         
     }
 
@@ -81,6 +83,11 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
                 dialogueSpeaker.text = speakerEntity.DisplayName;
             }
         }
+
+        if (ArticyGlobalVariables.Default.FeyDialogue.HasLetter == true)
+        {
+            letterButtonObj.SetActive(true);
+        }
     }
 
     public void OnBranchesUpdated(IList<Branch> aBranches)
@@ -118,5 +125,10 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
                 Destroy(child.gameObject);
             }
         }
+    }
+
+    void TriggerLetterCompleted()
+    {
+        ArticyGlobalVariables.Default.FeyDialogue.HasFullLetter = true;
     }
 }

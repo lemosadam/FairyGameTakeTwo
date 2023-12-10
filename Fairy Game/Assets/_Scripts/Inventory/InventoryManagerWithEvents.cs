@@ -8,10 +8,13 @@ public class InventoryManagerWithEvents : MonoBehaviour
 {
     public Dictionary<string,GameObject> concepts = new Dictionary<string,GameObject>();
 
+    public bool letterCompleted = false;
+    public static event Action OnLetterCompleted;
     // Start is called before the first frame update
     void Start()
     {
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
+        ConceptCollectionNotifier.OnConceptCollected += LetterCompeted;
     }
 
     private void Update()
@@ -94,4 +97,12 @@ public class InventoryManagerWithEvents : MonoBehaviour
         return concepts.ContainsKey("Slot4");
     }
 
+    void LetterCompeted(GameObject concept)
+    {
+        if (concepts.ContainsKey("Slot1") && concepts.ContainsKey("Slot2") && concepts.ContainsKey("Slot3") && concepts.ContainsKey("Slot4"))
+        {
+            letterCompleted = true;
+            OnLetterCompleted();
+        }
+    }
 }
