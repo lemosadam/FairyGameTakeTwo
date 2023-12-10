@@ -66,7 +66,7 @@ namespace SupanthaPaul
         private int m_onWallSide = 0;
 		private int m_playerSide = 1;
 
-
+		public bool canWalkBackground = false;
 		void Start()
 		{
 			// create pools for particles
@@ -321,6 +321,10 @@ namespace SupanthaPaul
             {
                 
             }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")
+            {
+				canWalkBackground = true;
+            }
         }
 
         private void ConceptRemovedFromInventory(GameObject concept)
@@ -336,7 +340,11 @@ namespace SupanthaPaul
                 extraJumpCount = 0;
 
             }
-			
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")
+            {
+				canWalkBackground = false;
+            }
+
         }
 
 		private void ToggleGravity()

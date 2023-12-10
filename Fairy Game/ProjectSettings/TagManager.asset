@@ -18,18 +18,18 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - BackgroundWindows
   - Ground
   - Enemy
   - Player
   - InspectObject
   - PostProcessing
-  - Foreground
-  - Camera
+  - 
+  - 
   - Background
+  - Foreground
   - 
-  - 
-  - 
+  - Camera
   - 
   - 
   - 

@@ -18,6 +18,9 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         shopConcepts["Slot1"] = GameObject.Find("Shrink Concept");
+        shopConcepts["Slot2"] = GameObject.Find("Walk Background Concept");
+        shopConcepts["Slot3"] = GameObject.Find("Inverse Jump Concept");
+        shopConcepts["Slot4"] = GameObject.Find("Dash Concept");
         GameObject.Find("Shrink Concept").transform.position = new Vector2(1000, 1000);
 
         

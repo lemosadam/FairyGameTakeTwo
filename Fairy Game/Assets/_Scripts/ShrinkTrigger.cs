@@ -29,12 +29,12 @@ public class ShrinkTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && playerController.m_facingRight==true)
+        if (other.CompareTag("Player") && playerController.m_facingRight==true && playerController.canWalkBackground ==true)
         {
             Vector2 smallScale = playerTransform.localScale * scalerSmallValue;
             playerTransform.localScale = smallScale;
         }
-        if (other.CompareTag("Player") && playerController.m_facingRight == false)
+        if (other.CompareTag("Player") && playerController.m_facingRight == false && playerController.canWalkBackground == true)
         {
             Vector2 smallScale = playerTransform.localScale * scalerLargeValue;
             playerTransform.localScale = smallScale;
