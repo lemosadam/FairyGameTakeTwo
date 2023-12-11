@@ -10,7 +10,7 @@ public class DashThroughWall : MonoBehaviour
     public List<Collider2D> entryColliders;
 
     public Collider2D wallCollider;
-    public float distanceThreshold = 1f;
+    public float distanceThreshold = 2f;
     // Start is called before the first frame update
     void Start()
     {

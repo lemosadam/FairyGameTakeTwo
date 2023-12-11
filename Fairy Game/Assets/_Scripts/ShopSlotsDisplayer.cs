@@ -13,6 +13,7 @@ public class ShopSlotsDisplayer : MonoBehaviour
     void Start()
     {
         ConceptCollectionNotifier.OnConceptSold += SpriteDisplayedInShop;
+        DoorScript.UseDoor += CloseShop;
     }
     private void SpriteDisplayedInShop(GameObject concept)
     {
@@ -41,5 +42,9 @@ public class ShopSlotsDisplayer : MonoBehaviour
         }
     }
 
+    void CloseShop()
+    {
+        gameObject.SetActive(false);
+    }
 
 }

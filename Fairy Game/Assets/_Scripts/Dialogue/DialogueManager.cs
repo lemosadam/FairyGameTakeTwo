@@ -5,6 +5,7 @@ using Articy.Unity;
 using Articy.Unity.Interfaces;
 using Articy.Fairygamedialogue;
 using Articy.Fairygamedialogue.GlobalVariables;
+using System;
 
 //using static UnityEngine.EventSystems.EventTrigger;
 
@@ -35,8 +36,15 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     public GameObject letterButtonObj;
 
     private ArticyFlowPlayer flowPlayer;
+
+    public static event Action OnLetterActive;
     void Start()
     {
+        ArticyGlobalVariables.Default.FeyDialogue.ShopOpen = false;
+        ArticyGlobalVariables.Default.FeyDialogue.HasFullLetter = false;
+        ArticyGlobalVariables.Default.FeyDialogue.HasLetter = false;
+        ArticyGlobalVariables.Default.FeyDialogue.Introduced = false;
+
         flowPlayer = GetComponent<ArticyFlowPlayer>();
         InventoryManagerWithEvents.OnLetterCompleted += TriggerLetterCompleted;
         
@@ -60,6 +68,7 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         if (ArticyGlobalVariables.Default.FeyDialogue.ShopOpen == true)
         {
             conceptShop.SetActive(true);
+            
         }
     }
 
@@ -87,6 +96,7 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         if (ArticyGlobalVariables.Default.FeyDialogue.HasLetter == true)
         {
             letterButtonObj.SetActive(true);
+            OnLetterActive();
         }
     }
 

@@ -14,15 +14,21 @@ public class DoorScript : MonoBehaviour
 public bool isPlayerAtDoor = false;
  public GameObject linkedDoor;
     public GameObject followCamera;
+    private bool doorEnter = false;
 
-    public static event Action OnTeleportComplete;
-void Start()
+    public static event Action DoorBlocked; //UI should listen to this to display go talk to NPC message
+    public static event Action UseDoor;
+
+
+    void Start()
     {
     // Get the player GameObject
     player = GameObject.FindGameObjectWithTag("Player");
     followCamera = GameObject.Find("Follow Camera");
+
+        DialogueManager.OnLetterActive += TriggerDoor;
     
-}
+    }
 
 void OnTriggerEnter2D(Collider2D other)
 {
@@ -47,18 +53,29 @@ void OnTriggerExit2D(Collider2D other)
 void Update()
 {
     // Check for user input or any other conditions to interact with the door
-    if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F))
+    if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F) && doorEnter == true)
     {
         // Perform door interaction logic here
         Debug.Log("Interacting with the door");
             Teleport();
     }
+
+        if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F) && doorEnter == false)
+        {
+            Debug.Log("You should talk to the NPC first");
+            //DoorBlocked();
+        }
 }
     public void Teleport()
     {
         followCamera.transform.position = linkedDoor.transform.position;
         player.transform.position = linkedDoor.transform.position;
-        //OnTeleportComplete();
-        //Debug.Log("Teleport Complete");
+        UseDoor();
+        
+    }
+
+    void TriggerDoor()
+    {
+        doorEnter = true;
     }
 }
