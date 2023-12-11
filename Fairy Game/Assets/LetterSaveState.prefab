@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7681930497522256784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5228616079589588332}
+  - component: {fileID: 964115720946331988}
+  m_Layer: 0
+  m_Name: LetterSaveState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5228616079589588332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681930497522256784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.47361, y: 19.669785, z: 4.4587307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964115720946331988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681930497522256784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862d547abfe4fb248b989cc222423301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paragraph1: I remember our first magic carpet ride. We were flying into the sunrise
+    when you kissed me. You still tasted like cherry cordial. You were so deliciously
+    shy.
+  paragraph2: "Now, I know better, and I can laugh at how gullible I was. When I
+    finish telling everyone what I went through, it\u2019s like you\u2019ve lost
+    your hold on my past. My memories are my own again."
+  paragraph3: "I can\u2019t do this anymore. I\u2019m suffering because of how much
+    you mean to me. Heartache eats away at my memories of your head on my chest."
+  paragraph4: "Let\u2019s cherish this for what it was. I wish we could have saved
+    each other from the anguish of the last few weeks. We made our choices. Maybe
+    this is just how this story had to end."

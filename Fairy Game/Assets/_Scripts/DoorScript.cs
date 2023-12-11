@@ -11,8 +11,8 @@ public class DoorScript : MonoBehaviour
     public GameObject player;
 
 // Flag to indicate whether the player is at the door
-public bool isPlayerAtDoor = false;
- public GameObject linkedDoor;
+    public bool isPlayerAtDoor = false;
+    public GameObject linkedDoor;
     public GameObject followCamera;
     private bool doorEnter = false;
 
@@ -63,7 +63,7 @@ void Update()
         if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F) && doorEnter == false)
         {
             Debug.Log("You should talk to the NPC first");
-            //DoorBlocked();
+            DoorBlocked();
         }
 }
     public void Teleport()
@@ -78,4 +78,8 @@ void Update()
     {
         doorEnter = true;
     }
+
+
+
+
 }

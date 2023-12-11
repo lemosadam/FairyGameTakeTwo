@@ -11,7 +11,7 @@ namespace SupanthaPaul
 		static readonly string DashInput = "Dash";
 
 		private static bool DashingIsAllowed = false;
-        private static bool JumpingIsAllowed = false;
+        public static bool JumpingIsAllowed = false;
 
         private void Start()
         {
@@ -54,10 +54,10 @@ namespace SupanthaPaul
                 JumpingIsAllowed = false;
             }
 
-            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+      /*      if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
                 JumpingIsAllowed = false;
-            }
+            }*/
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
@@ -72,8 +72,10 @@ namespace SupanthaPaul
 
 		public static bool Jump()
 		{
+
             return Input.GetButtonDown(JumpInput) && JumpingIsAllowed;
-		}
+            
+        }
 
 		public static bool Dash()
 		{

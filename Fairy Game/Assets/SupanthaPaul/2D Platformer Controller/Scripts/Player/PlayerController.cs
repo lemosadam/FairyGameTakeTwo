@@ -24,7 +24,7 @@ namespace SupanthaPaul
 		[SerializeField] private GameObject dashEffect;
 
 		// Access needed for handling animation in Player script and other uses
-		/*[HideInInspector]*/ public bool isGrounded;
+		[SerializeField] public bool isGrounded;
 		[HideInInspector] public float moveInput;
 		[HideInInspector] public bool canMove = true;
 		[HideInInspector] public bool isDashing = false;
@@ -322,6 +322,7 @@ namespace SupanthaPaul
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
+				if (extraJumpCount == 0)
 				extraJumpCount = 1;
 
             }
@@ -345,7 +346,7 @@ namespace SupanthaPaul
             
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
-                extraJumpCount = 0;
+				extraJumpCount = 0;
 
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")
