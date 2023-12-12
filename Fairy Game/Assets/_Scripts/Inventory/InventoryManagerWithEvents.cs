@@ -15,6 +15,7 @@ public class InventoryManagerWithEvents : MonoBehaviour
     {
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptCollected += LetterCompeted;
+        concepts.Clear();
     }
 
     private void Update()
