@@ -7,7 +7,8 @@ public class SizeResetter : MonoBehaviour
 {
 
     private Transform originalPlayerTransform;
-
+    public GameObject Player;
+    private 
     // Start is called before the first frame update
     void Start()
     {
