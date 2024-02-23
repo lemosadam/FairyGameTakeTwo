@@ -907,7 +907,9 @@ MonoBehaviour:
 
     Mattz Art
 
-    NYKNCK'
+    NYKNCK
+
+    Marvyra'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47c397109cdab2442a892f6090d244e0, type: 2}
   m_sharedMaterial: {fileID: -6786820887505616938, guid: 47c397109cdab2442a892f6090d244e0,
@@ -935,8 +937,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

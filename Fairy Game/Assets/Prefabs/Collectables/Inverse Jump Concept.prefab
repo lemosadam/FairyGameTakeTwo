@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conceptObject: {fileID: 4637751122505556646}
-  conceptIcon: {fileID: 21300000, guid: ffccb75c5e668314492f9e608a286f94, type: 3}
+  conceptIcon: {fileID: 21300000, guid: 72b946811793d294b90a9fb4c7b17bf7, type: 3}
   isInInventory: 0
   isInShop: 0
   conceptName: 
