@@ -12,7 +12,7 @@ namespace SupanthaPaul
 		[SerializeField] private Transform groundCheck;
 		[SerializeField] private float groundCheckRadius;
 		[SerializeField] private LayerMask whatIsGround;
-		public int extraJumpCount = 0;
+		public int extraJumpModifier = -1;
 		[SerializeField] private GameObject jumpEffect;
 		[Header("Dashing")]
 		[SerializeField] public bool canDash = false;
@@ -47,7 +47,7 @@ namespace SupanthaPaul
 		private bool m_isUpright = true;
 		private readonly float m_groundedRememberTime = 0.25f;
 		private float m_groundedRemember = 0f;
-		private int m_extraJumps;
+		public int m_extraJumps;
 		private float m_extraJumpForce;
 		private float m_dashTime;
 		private bool m_hasDashedInAir = false;
@@ -81,7 +81,7 @@ namespace SupanthaPaul
 			if (transform.CompareTag("Player"))
 				isCurrentlyPlayable = true;
 
-			m_extraJumps = extraJumpCount;
+			//m_extraJumps = extraJumpCount;
 			m_dashTime = startDashTime;
 			m_dashCooldown = dashCooldown;
 			m_extraJumpForce = jumpForce * 0.7f;
@@ -204,7 +204,7 @@ namespace SupanthaPaul
 
 			if (isGrounded)
 			{
-				m_extraJumps = extraJumpCount;
+				m_extraJumps = 1 + extraJumpModifier;
 			}
 
 			// grounded remember offset (for more responsive jump)
@@ -322,13 +322,12 @@ namespace SupanthaPaul
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
-				if (extraJumpCount == 0)
-				extraJumpCount = 1;
+				extraJumpModifier = 0;
 
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
-                
+				speed = speed - 1.5f;
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")
             {
@@ -346,12 +345,16 @@ namespace SupanthaPaul
             
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
-				extraJumpCount = 0;
+				extraJumpModifier = -1;
 
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")
             {
 				canWalkBackground = false;
+            }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
+            {
+				speed = speed + 1.5f;
             }
 
         }

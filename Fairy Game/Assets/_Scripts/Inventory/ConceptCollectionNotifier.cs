@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class ConceptCollectionNotifier : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public static event Action<GameObject> OnConceptCollected;
     public static event Action<GameObject> OnConceptPurchased;
     public static event Action<GameObject> OnConceptSold;
+    public static event Action OnSingleJumpSold;
+    public static event Action OnDoubleJumpSold;
 
 
     [SerializeField] //consider adding this info to a seperate script
@@ -46,6 +49,17 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public void OnSold()
     {
         OnConceptSold(gameObject);
+        if (this.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
+        {
+            OnSingleJumpSold();
+            Debug.Log("Single jump sold");
+        }
+        
+        if (this.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+        {
+            OnDoubleJumpSold();
+        }
+        
     }
-
+   
 }

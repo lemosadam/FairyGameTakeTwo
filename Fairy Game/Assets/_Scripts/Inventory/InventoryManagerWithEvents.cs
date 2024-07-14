@@ -8,13 +8,18 @@ public class InventoryManagerWithEvents : MonoBehaviour
 {
     public Dictionary<string,GameObject> concepts = new Dictionary<string,GameObject>();
 
+
     public bool letterCompleted = false;
     public static event Action OnLetterCompleted;
+    public static event Action OnSingleJumpInInventory;
+    public static event Action OnDoubleJumpInInventory;
+
+
     // Start is called before the first frame update
     void Start()
     {
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
-        ConceptCollectionNotifier.OnConceptCollected += LetterCompeted;
+        ConceptCollectionNotifier.OnConceptCollected += LetterCompleted;
         concepts.Clear();
     }
 
@@ -76,6 +81,19 @@ public class InventoryManagerWithEvents : MonoBehaviour
             Debug.Log("Slot 4 filled!");
         }
 
+        //check if concept is jumping power
+
+        if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump") 
+        {
+            //Debug.Log("Jump concept in inventory");
+            OnSingleJumpInInventory();
+        }
+
+        if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
+        {
+            OnDoubleJumpInInventory();
+        }
+
 
     }
        
@@ -98,7 +116,7 @@ public class InventoryManagerWithEvents : MonoBehaviour
         return concepts.ContainsKey("Slot4");
     }
 
-    void LetterCompeted(GameObject concept)
+    void LetterCompleted(GameObject concept)
     {
         if (concepts.ContainsKey("Slot1") && concepts.ContainsKey("Slot2") && concepts.ContainsKey("Slot3") && concepts.ContainsKey("Slot4"))
         {

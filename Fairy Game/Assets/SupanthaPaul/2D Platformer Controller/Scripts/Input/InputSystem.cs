@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SupanthaPaul
@@ -12,13 +14,23 @@ namespace SupanthaPaul
 
 		private static bool DashingIsAllowed = false;
         public static bool JumpingIsAllowed = false;
+        private bool SingleJumpInInventory = false;
+        private bool DoubleJumpInInventory = false;
+
 
         private void Start()
         {
 			DashingIsAllowed = false;
-			ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
+            SingleJumpInInventory = false;
+            DoubleJumpInInventory = false;
+            ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
+            InventoryManagerWithEvents.OnSingleJumpInInventory += ToggleSingleJumpInInventory;
+            InventoryManagerWithEvents.OnDoubleJumpInInventory += ToggleDoubleJumpInInventory;
+            ConceptCollectionNotifier.OnSingleJumpSold += ToggleSingleJumpInInventory;
+            ConceptCollectionNotifier.OnDoubleJumpSold += ToggleDoubleJumpInInventory;
+
         }
         private void ConceptAddedToInventory(GameObject concept)
         {
@@ -30,15 +42,17 @@ namespace SupanthaPaul
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
             {
                 JumpingIsAllowed = true;
+                SingleJumpInInventory = true;
             }
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
                 JumpingIsAllowed = true;
+                DoubleJumpInInventory = true;
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
-                JumpingIsAllowed = true;
+                //JumpingIsAllowed = true;
             }
 
         }
@@ -49,19 +63,18 @@ namespace SupanthaPaul
                 DashingIsAllowed = false;
 
             }
-            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump" && !DoubleJumpInInventory)
+            {
+                JumpingIsAllowed = false;
+            }
+            if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump" && !SingleJumpInInventory)
             {
                 JumpingIsAllowed = false;
             }
 
-      /*      if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
-            {
-                JumpingIsAllowed = false;
-            }*/
-
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
-                JumpingIsAllowed = false;
+                //JumpingIsAllowed = false;
             }
         }
 
@@ -82,7 +95,15 @@ namespace SupanthaPaul
 			return Input.GetButtonDown(DashInput) && DashingIsAllowed;
 		}
 
-        
+        private void ToggleSingleJumpInInventory()
+        {
+            SingleJumpInInventory = !SingleJumpInInventory;
+            Debug.Log("Single jump in inventory:" + SingleJumpInInventory);
+        }
+        private void ToggleDoubleJumpInInventory()
+        {
+            DoubleJumpInInventory = !DoubleJumpInInventory;
+        }
 
     }
 }
