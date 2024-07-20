@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,19 @@ public class MenuSceneManager : MonoBehaviour
     public string creditsSceneName = "CreditsScene";
     public string menuSceneName = "MainMenu";
     public string letterSceneName = "FinalLetterScene";
+    public string endScene = "EndScene";
 
+
+    //public static event Action OnGameStart;
+
+    void Start()
+    {
+       
+    }
     public void LoadGameScene()
     {
         SceneManager.LoadScene(gameSceneName);
+        //OnGameStart();
     }
 
     public void LoadCreditsScene()
@@ -27,5 +37,10 @@ public class MenuSceneManager : MonoBehaviour
     public void LoadLetterScene()
     {
         SceneManager.LoadScene(letterSceneName);
+    }
+
+    public void LoadEndScene()
+    {
+        SceneManager.LoadScene(endScene);
     }
 }

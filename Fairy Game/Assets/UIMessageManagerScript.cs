@@ -10,6 +10,11 @@ public class UIMessageManagerScript : MonoBehaviour
     public GameObject uiPanel;
     //public float panelTime = 6f;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        uiPanel = GameObject.Find("UIHintPanel");
+    }
     void Start()
     {
 
@@ -17,8 +22,8 @@ public class UIMessageManagerScript : MonoBehaviour
         ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
         DoorScript.DoorBlocked += DoorBlocked;
-        
 
+        
 
         ShowPanel();
         //Invoke("HidePanel", panelTime);
@@ -107,12 +112,17 @@ public class UIMessageManagerScript : MonoBehaviour
 
     public void ShowPanel()
     {
-        uiPanel.SetActive(true);
+        Debug.Log("A panel should show up");
+        if (uiPanel != null)
+        {
+            uiPanel.transform.position = GetComponentInParent<Transform>().position;
+        }
+        
     }
 
     public void HidePanel()
     {
-        uiPanel.SetActive(false);
+        uiPanel.transform.position = new Vector2(1000, 1000);
     }
 
     public void DoorBlocked()

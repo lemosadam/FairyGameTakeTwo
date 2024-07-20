@@ -322,7 +322,9 @@ namespace SupanthaPaul
 
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
-				extraJumpModifier = 0;
+				//m_extraJumps++;
+				extraJumpModifier++;
+                Debug.Log("Extra jumps: " + m_extraJumps);
 
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
@@ -345,7 +347,9 @@ namespace SupanthaPaul
             
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
-				extraJumpModifier = -1;
+				//m_extraJumps--;
+				extraJumpModifier--;
+				Debug.Log("Extra jumps: " + m_extraJumps);
 
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "walk background")

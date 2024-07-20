@@ -446,7 +446,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1501508487}
         m_TargetAssemblyTypeName: MenuSceneManager, Assembly-CSharp
-        m_MethodName: LoadMenuScene
+        m_MethodName: LoadEndScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1056,6 +1056,7 @@ MonoBehaviour:
   creditsSceneName: CreditsScene
   menuSceneName: MainMenu
   letterSceneName: FinalLetterScene
+  endScene: EndScene
 --- !u!4 &1501508488
 Transform:
   m_ObjectHideFlags: 0
@@ -1265,7 +1266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: End Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47c397109cdab2442a892f6090d244e0, type: 2}
   m_sharedMaterial: {fileID: -6786820887505616938, guid: 47c397109cdab2442a892f6090d244e0,

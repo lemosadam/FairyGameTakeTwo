@@ -30,6 +30,7 @@ namespace SupanthaPaul
             InventoryManagerWithEvents.OnDoubleJumpInInventory += ToggleDoubleJumpInInventory;
             ConceptCollectionNotifier.OnSingleJumpSold += ToggleSingleJumpInInventory;
             ConceptCollectionNotifier.OnDoubleJumpSold += ToggleDoubleJumpInInventory;
+            //MenuSceneManager.OnGameStart += SetJumpFalse;
 
         }
         private void ConceptAddedToInventory(GameObject concept)
@@ -103,6 +104,11 @@ namespace SupanthaPaul
         private void ToggleDoubleJumpInInventory()
         {
             DoubleJumpInInventory = !DoubleJumpInInventory;
+        }
+
+        private void SetJumpFalse()
+        {
+            JumpingIsAllowed = false;
         }
 
     }
