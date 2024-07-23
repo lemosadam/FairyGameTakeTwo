@@ -21,6 +21,7 @@ public class UIMessageManagerScript : MonoBehaviour
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
+        BackTeleporter.OnMagicDoorBlocked += MagicDoorBlocked;
         DoorScript.DoorBlocked += DoorBlocked;
 
         
@@ -112,7 +113,6 @@ public class UIMessageManagerScript : MonoBehaviour
 
     public void ShowPanel()
     {
-        Debug.Log("A panel should show up");
         if (uiPanel != null)
         {
             uiPanel.transform.position = GetComponentInParent<Transform>().position;
@@ -130,5 +130,11 @@ public class UIMessageManagerScript : MonoBehaviour
         ShowPanel();
         //Invoke("HidePanel", panelTime);
         panelText.text = "Locked. Perhaps that strange creature knows how to proceed.";
+    }
+
+    public void MagicDoorBlocked()
+    {
+        ShowPanel();
+        panelText.text = "To traverse trough this doorway requires, you must be longing for what is out of reach.";
     }
 }

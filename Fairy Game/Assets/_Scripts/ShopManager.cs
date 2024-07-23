@@ -31,7 +31,6 @@ public class ShopManager : MonoBehaviour
         shopConcepts["Slot1"] = inventoryManager.concepts["Slot1"];
         inventoryManager.concepts["Slot1"].GetComponent<ConceptCollectionNotifier>().OnSold();
         inventoryManager.Exchange("Slot1", exchange);
-        Debug.Log("Trade button 1 pressed");
     }
 
     public void OnTradeButton2Click()
@@ -40,7 +39,6 @@ public class ShopManager : MonoBehaviour
         shopConcepts["Slot2"] = inventoryManager.concepts["Slot2"];
         inventoryManager.concepts["Slot2"].GetComponent<ConceptCollectionNotifier>().OnSold();
         inventoryManager.Exchange("Slot2", exchange);
-        Debug.Log("Trade button 2 pressed");
     }
 
     public void OnTradeButton3Click()
@@ -49,7 +47,6 @@ public class ShopManager : MonoBehaviour
         shopConcepts["Slot3"] = inventoryManager.concepts["Slot3"];
         inventoryManager.concepts["Slot3"].GetComponent<ConceptCollectionNotifier>().OnSold();
         inventoryManager.Exchange("Slot3", exchange);
-        Debug.Log("Trade button 3 pressed");
     }
 
     public void OnTradeButton4Click()
@@ -58,7 +55,6 @@ public class ShopManager : MonoBehaviour
         shopConcepts["Slot4"] = inventoryManager.concepts["Slot4"];
         inventoryManager.concepts["Slot4"].GetComponent<ConceptCollectionNotifier>().OnSold();
         inventoryManager.Exchange("Slot4", exchange);
-        Debug.Log("Trade button 4 pressed");
     }
 
     private bool IsInSlot1()

@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 368773412}
   - component: {fileID: 368773411}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 173, y: 20.999994}
+  m_AnchoredPosition: {x: 173, y: 29}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368773411
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 23
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -527,9 +527,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Programming - Writing - Design:
 
+    Jacob Laden-Guindon
+
     Adam Lemos
 
-    Jacob Laden-Guindon'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47c397109cdab2442a892f6090d244e0, type: 2}
   m_sharedMaterial: {fileID: -6786820887505616938, guid: 47c397109cdab2442a892f6090d244e0,
@@ -1014,7 +1016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: 21}
+  m_AnchoredPosition: {x: -35, y: 29}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845700401
@@ -1037,8 +1039,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Art Assets:\nSupantha Paul\nBlackspire Studio\nMattz Art\nNYKNCK\nMarvyra\n\nFonts:\nAlagard
-    by Hewett Tsoi\r"
+  m_text: "Art Assets:\nSupantha Paul\nBlackspire Studio\nMattz Art\nNYKNCK\nMarvyra\n\nFonts:\nDogica
+    by Roberto Mocc\nAlagard by Hewett Tsoi\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47c397109cdab2442a892f6090d244e0, type: 2}
   m_sharedMaterial: {fileID: -6786820887505616938, guid: 47c397109cdab2442a892f6090d244e0,
@@ -1078,7 +1080,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 23.1
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

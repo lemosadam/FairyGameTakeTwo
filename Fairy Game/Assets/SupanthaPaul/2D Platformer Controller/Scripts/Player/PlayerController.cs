@@ -12,7 +12,9 @@ namespace SupanthaPaul
 		[SerializeField] private Transform groundCheck;
 		[SerializeField] private float groundCheckRadius;
 		[SerializeField] private LayerMask whatIsGround;
-		public int extraJumpModifier = -1;
+        [SerializeField] private LayerMask whatIsRealGround;
+        [SerializeField] public LayerMask whatIsMagicGround;
+        public int extraJumpModifier = -1;
 		[SerializeField] private GameObject jumpEffect;
 		[Header("Dashing")]
 		[SerializeField] public bool canDash = false;
@@ -96,6 +98,9 @@ namespace SupanthaPaul
             ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
 			ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
 			GravityInverter.OnGravityToggled += InvertGravity;
+			BackTeleporter.OnPlayerTeleportedBack += BackgroundAsGround;
+            FrontTeleporter.OnPlayerTeleportedFront += RevertGround;
+			PositionResetterEscher.OnResetPosition += RevertGround;
             //GravityInverter.OnGravityToggled += RevertGravity;
         }
 
@@ -239,6 +244,7 @@ namespace SupanthaPaul
 			// Jumping
 			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing)	// extra jumping
 			{
+				Debug.Log("double jumping");
 				m_rb.velocity = new Vector2(m_rb.velocity.x, m_extraJumpForce); ;
 				m_extraJumps--;
 				// jumpEffect
@@ -246,6 +252,7 @@ namespace SupanthaPaul
 			}
 			else if(InputSystem.Jump() && (isGrounded || m_groundedRemember > 0f))	// normal single jumping
 			{
+				Debug.Log("single jumping");
 				m_rb.velocity = new Vector2(m_rb.velocity.x, jumpForce);
 				// jumpEffect
 				PoolManager.instance.ReuseObject(jumpEffect, groundCheck.position, Quaternion.identity);
@@ -323,7 +330,7 @@ namespace SupanthaPaul
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
 				//m_extraJumps++;
-				extraJumpModifier++;
+				extraJumpModifier = 0;
                 Debug.Log("Extra jumps: " + m_extraJumps);
 
             }
@@ -348,7 +355,7 @@ namespace SupanthaPaul
 			if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
             {
 				//m_extraJumps--;
-				extraJumpModifier--;
+				extraJumpModifier = -1;
 				Debug.Log("Extra jumps: " + m_extraJumps);
 
             }
@@ -371,6 +378,16 @@ namespace SupanthaPaul
             Debug.Log("Gravity inverted?" + m_rb.gravityScale);
             
 		}
+
+		private void BackgroundAsGround(GameObject player)
+		{
+			whatIsGround = whatIsMagicGround;
+		}
+
+        private void RevertGround(GameObject player)
+        {
+			whatIsGround = whatIsRealGround;
+        }
 
         /*private void RevertGravity()
         {

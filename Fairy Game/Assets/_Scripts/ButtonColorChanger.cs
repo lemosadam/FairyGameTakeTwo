@@ -29,7 +29,6 @@ public class ButtonColorChanger : MonoBehaviour
 
     private void ConceptAddedToInventory(GameObject concept) 
     {
-        Debug.Log("button should change color");
         StartCoroutine(Flash());
     }
 

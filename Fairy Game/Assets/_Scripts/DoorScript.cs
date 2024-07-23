@@ -36,7 +36,6 @@ void OnTriggerEnter2D(Collider2D other)
     {
         // Player is at the door
         isPlayerAtDoor = true;
-        Debug.Log("Player is at the door");
     }
 }
 
@@ -46,7 +45,6 @@ void OnTriggerExit2D(Collider2D other)
     {
         // Player has left the door
         isPlayerAtDoor = false;
-        Debug.Log("Player left the door");
     }
 }
 
@@ -56,13 +54,11 @@ void Update()
     if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F) && doorEnter == true)
     {
         // Perform door interaction logic here
-        Debug.Log("Interacting with the door");
             Teleport();
     }
 
         if (isPlayerAtDoor && Input.GetKeyDown(KeyCode.F) && doorEnter == false)
         {
-            Debug.Log("You should talk to the NPC first");
             DoorBlocked();
         }
 }
