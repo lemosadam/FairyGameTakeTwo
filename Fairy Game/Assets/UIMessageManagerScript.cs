@@ -8,6 +8,7 @@ public class UIMessageManagerScript : MonoBehaviour
 
     public TMP_Text panelText;
     public GameObject uiPanel;
+    public GameObject offscreenObj;
 
     //random fall messages
     private string fallMessage = "You can't escape that way, my pet. Try again.";
@@ -24,13 +25,12 @@ public class UIMessageManagerScript : MonoBehaviour
     }
     void Start()
     {
-
         ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
         ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
         BackTeleporter.OnMagicDoorBlocked += MagicDoorBlocked;
         DoorScript.DoorBlocked += DoorBlocked;
-        PositionResetter.OnPosisitionReset += PositionReset;
+        PositionResetter.OnPositionReset += PositionReset;
 
         fallMessages = new string[] { fallMessage, fallMessage1, fallMessage2, };
 
@@ -130,7 +130,7 @@ public class UIMessageManagerScript : MonoBehaviour
 
     public void HidePanel()
     {
-        uiPanel.transform.position = new Vector2(1000, 1000);
+        uiPanel.transform.position = offscreenObj.transform.position;
     }
 
     public void DoorBlocked()
@@ -155,7 +155,7 @@ public class UIMessageManagerScript : MonoBehaviour
             panelText.text = fallMessages[randomIndex];
         }
     }
-    public void PositionReset()
+    public void PositionReset(GameObject player)
     {
         ShowPanel();
         DisplayRandomText();

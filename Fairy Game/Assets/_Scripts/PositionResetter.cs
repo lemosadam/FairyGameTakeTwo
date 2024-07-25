@@ -7,7 +7,7 @@ public class PositionResetter : MonoBehaviour
 {
     public GameObject startPosisitonObj;
     private Vector2 startPosition;
-    public static event Action OnPosisitionReset;
+    public static event Action<GameObject> OnPositionReset;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +20,11 @@ public class PositionResetter : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        collision.transform.position = startPosition;
-        OnPosisitionReset();
+        other.transform.position = startPosition;
+        GameObject collisionObj = other.gameObject;
+        OnPositionReset(collisionObj);
     }
 
 }

@@ -108,6 +108,11 @@ namespace SupanthaPaul
 		{
 			// check if grounded
 			isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+			Debug.Log("Player is Grounded");
+			if (!isGrounded)
+			{
+				Debug.Log("Player is not grounded");
+			}
 			var position = transform.position;
 			// check if on wall
 			m_onWall = Physics2D.OverlapCircle((Vector2)position + grabRightOffset, grabCheckRadius, whatIsGround)

@@ -24,7 +24,8 @@ public class PositionResetterEscher : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.transform.position = startPosition;
-
+        GameObject collisionObj = collision.gameObject;
+        OnResetPosition(collisionObj);
     }
 
     private void OnTriggerExit2D(Collider2D other)
