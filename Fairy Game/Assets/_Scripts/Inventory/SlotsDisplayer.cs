@@ -52,7 +52,6 @@ public class SlotsDisplayer : MonoBehaviour
         if (concept != null && concept.CompareTag("Slot3"))
         {
             Slot3.sprite = sprite;
-            Debug.Log("Slot 3 in inventory");
 
         }
         if (concept != null && concept.CompareTag("Slot4"))
@@ -90,7 +89,6 @@ public class SlotsDisplayer : MonoBehaviour
 
         }
 
-        Debug.Log("Concept collected or traded: " + concept.GetComponent<ConceptCollectionNotifier>().conceptName);
     }
 
 

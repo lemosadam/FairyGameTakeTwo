@@ -8,12 +8,19 @@ public class UIMessageManagerScript : MonoBehaviour
 
     public TMP_Text panelText;
     public GameObject uiPanel;
+
+    //random fall messages
+    private string fallMessage = "You can't escape that way, my pet. Try again.";
+    private string fallMessage1 = "Clumsiness, darling, best to give it away. No, not to me, of course.";
+    private string fallMessage2 = "...off the ledge, head over heels, at his feet... Enough falling for you, my dear.";
+    private string[] fallMessages;
     //public float panelTime = 6f;
     // Start is called before the first frame update
 
     void Awake()
     {
         uiPanel = GameObject.Find("UIHintPanel");
+
     }
     void Start()
     {
@@ -23,8 +30,9 @@ public class UIMessageManagerScript : MonoBehaviour
         ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
         BackTeleporter.OnMagicDoorBlocked += MagicDoorBlocked;
         DoorScript.DoorBlocked += DoorBlocked;
+        PositionResetter.OnPosisitionReset += PositionReset;
 
-        
+        fallMessages = new string[] { fallMessage, fallMessage1, fallMessage2, };
 
         ShowPanel();
         //Invoke("HidePanel", panelTime);
@@ -135,6 +143,21 @@ public class UIMessageManagerScript : MonoBehaviour
     public void MagicDoorBlocked()
     {
         ShowPanel();
-        panelText.text = "To traverse trough this doorway requires, you must be longing for what is out of reach.";
+        panelText.text = "To traverse trough this doorway, you must be longing for what is out of reach.";
+    }
+
+    public void DisplayRandomText()
+    {
+        if (fallMessages != null)
+        {
+            // Select a random text from the array
+            int randomIndex = Random.Range(0, fallMessages.Length);
+            panelText.text = fallMessages[randomIndex];
+        }
+    }
+    public void PositionReset()
+    {
+        ShowPanel();
+        DisplayRandomText();
     }
 }

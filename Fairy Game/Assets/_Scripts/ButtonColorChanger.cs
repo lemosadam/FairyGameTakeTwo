@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class ButtonColorChanger : MonoBehaviour
 {
     public Image buttonImage;
-    public Color originalColor;
+    public Image buttonGlow;
+    public Color originalButtonColor;
+    public Color originalGlowColor;
     public Color flashColor;
     public float flashDuration = 0.5f;
 
@@ -36,11 +38,14 @@ public class ButtonColorChanger : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            buttonImage.color = originalColor;
+            buttonImage.color = originalButtonColor;
+            buttonGlow.color = originalGlowColor;
             yield return new WaitForSeconds(flashDuration);
             buttonImage.color = flashColor;
+            buttonGlow.color = flashColor;
             yield return new WaitForSeconds(flashDuration);
         }
-        buttonImage.color = originalColor; // Revert to original color
+        buttonImage.color = originalButtonColor; // Revert to original color
+        buttonGlow.color = originalGlowColor;
     }
 }

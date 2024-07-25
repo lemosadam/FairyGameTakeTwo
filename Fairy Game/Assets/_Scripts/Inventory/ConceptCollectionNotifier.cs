@@ -44,18 +44,20 @@ public class ConceptCollectionNotifier : MonoBehaviour
     public void OnPurchased()
     {
         OnConceptPurchased(gameObject);
+        //OnConceptCollected(gameObject);
     }
     public void OnSold()
     {
         OnConceptSold(gameObject);
         if (this.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump")
         {
+            Debug.Log("Jump was sold");
             OnSingleJumpSold();
-            Debug.Log("Single jump sold");
         }
         
         if (this.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump")
         {
+            Debug.Log("Double jump was sold");
             OnDoubleJumpSold();
         }
         

@@ -34,7 +34,6 @@ public class GravityInverter : MonoBehaviour
     {
         if (other.gameObject == player && hasCrushingHeartbreak == false)
         {
-            Debug.Log("Collided");
             OnGravityToggled();
         }
     }
@@ -43,7 +42,6 @@ public class GravityInverter : MonoBehaviour
     {
         if (other.gameObject == player && hasCrushingHeartbreak == false)
         {
-            Debug.Log("Left Anti gravity");
             OnGravityToggled();
         }
     }
@@ -53,7 +51,6 @@ public class GravityInverter : MonoBehaviour
         if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
         {
             hasCrushingHeartbreak = true;
-            Debug.Log(hasCrushingHeartbreak);
         }
     }
 
@@ -62,7 +59,6 @@ public class GravityInverter : MonoBehaviour
         if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
         {
             hasCrushingHeartbreak = false;
-            Debug.Log(hasCrushingHeartbreak);
         }
         
     }

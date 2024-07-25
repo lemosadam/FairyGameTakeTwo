@@ -248,8 +248,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Music: \n\nPrimal Shaman by Alex Mason is licensed under a Attribution-NonCommercial
-    4.0 International License. "
+  m_text: "Music: \n\nAtmospheric Adventures Music Pack by Rosentwig:\nReflection\nYour
+    Destiny"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47c397109cdab2442a892f6090d244e0, type: 2}
   m_sharedMaterial: {fileID: -6786820887505616938, guid: 47c397109cdab2442a892f6090d244e0,

@@ -23,13 +23,14 @@ namespace SupanthaPaul
 			DashingIsAllowed = false;
             SingleJumpInInventory = false;
             DoubleJumpInInventory = false;
+            InventoryManagerWithEvents.OnSingleJumpInInventory += EnableSingleJump;
+            InventoryManagerWithEvents.OnDoubleJumpInInventory += EnableDoubleJump;
+            ConceptCollectionNotifier.OnSingleJumpSold += DisableSingleJump;
+            ConceptCollectionNotifier.OnDoubleJumpSold += DisableDoubleJump;
             ConceptCollectionNotifier.OnConceptCollected += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptPurchased += ConceptAddedToInventory;
             ConceptCollectionNotifier.OnConceptSold += ConceptRemovedFromInventory;
-            InventoryManagerWithEvents.OnSingleJumpInInventory += ToggleSingleJumpInInventory;
-            InventoryManagerWithEvents.OnDoubleJumpInInventory += ToggleDoubleJumpInInventory;
-            ConceptCollectionNotifier.OnSingleJumpSold += ToggleSingleJumpInInventory;
-            ConceptCollectionNotifier.OnDoubleJumpSold += ToggleDoubleJumpInInventory;
+            
 
         }
         private void ConceptAddedToInventory(GameObject concept)
@@ -43,8 +44,6 @@ namespace SupanthaPaul
             {
                 JumpingIsAllowed = true;
                 Debug.Log("Jumping allowed?" + JumpingIsAllowed);
-                //SingleJumpInInventory = true;
-                Debug.Log("Single Jump in inventory? " + SingleJumpInInventory);
 
 
             }
@@ -53,8 +52,6 @@ namespace SupanthaPaul
             {
                 JumpingIsAllowed = true;
                 Debug.Log("Jumping allowed?" + JumpingIsAllowed);
-                //DoubleJumpInInventory = true;
-                Debug.Log("Double Jump in inventory? " + DoubleJumpInInventory);
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
@@ -72,36 +69,28 @@ namespace SupanthaPaul
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump" && !DoubleJumpInInventory)
             {
                 JumpingIsAllowed = false;
-                //SingleJumpInInventory = false;
                 Debug.Log("Jumping allowed?" + JumpingIsAllowed);
-                Debug.Log("Single Jump in inventory? " + SingleJumpInInventory);
             }
             else if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "jump" && DoubleJumpInInventory)
             {
-                //SingleJumpInInventory = false;
-                Debug.Log("Single Jump in inventory? " + SingleJumpInInventory);
                 JumpingIsAllowed = true;
+                Debug.Log("Jumping allowed?" + JumpingIsAllowed);
             }
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump" && !SingleJumpInInventory)
             {
-                Debug.Log("Single Jump in inventory? " + SingleJumpInInventory);
                 JumpingIsAllowed = false;
                 Debug.Log("Jumping allowed?" + JumpingIsAllowed);
-                //DoubleJumpInInventory = false;
-                Debug.Log("Double Jump in inventory? " + DoubleJumpInInventory);
                 
             }
             else if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "double jump" && SingleJumpInInventory)
             {
-                //DoubleJumpInInventory = false;
-                Debug.Log("Double Jump in inventory? " + DoubleJumpInInventory);
                 JumpingIsAllowed = true;
                 Debug.Log("Jumping allowed?" + JumpingIsAllowed);
             }      
                     
             if (concept.GetComponent<ConceptCollectionNotifier>().conceptMechanic == "inverse jump")
             {
-                //JumpingIsAllowed = false;
+
             }
         }
 
@@ -122,13 +111,25 @@ namespace SupanthaPaul
 			return Input.GetButtonDown(DashInput) && DashingIsAllowed;
 		}
 
-        private void ToggleSingleJumpInInventory()
+        private void EnableSingleJump()
         {
-            SingleJumpInInventory = !SingleJumpInInventory;
+            SingleJumpInInventory = true;
+            Debug.Log("Single Jump in Inventory? "+ SingleJumpInInventory);
         }
-        private void ToggleDoubleJumpInInventory()
+        private void EnableDoubleJump()
         {
-            DoubleJumpInInventory = !DoubleJumpInInventory;
+            DoubleJumpInInventory = true;
+            Debug.Log("Double Jump in Inventory? "+ DoubleJumpInInventory);
+        }
+        private void DisableSingleJump()
+        {
+            SingleJumpInInventory = false;
+            Debug.Log("Single Jump in Inventory? " + SingleJumpInInventory);
+        }
+        private void DisableDoubleJump()
+        {
+            DoubleJumpInInventory = false;
+            Debug.Log("Double Jump in Inventory? " + DoubleJumpInInventory);
         }
 
         private void SetJumpFalse()

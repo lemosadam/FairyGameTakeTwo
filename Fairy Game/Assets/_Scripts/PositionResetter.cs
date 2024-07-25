@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class PositionResetter : MonoBehaviour
 {
     public GameObject startPosisitonObj;
     private Vector2 startPosition;
-
+    public static event Action OnPosisitionReset;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class PositionResetter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.transform.position = startPosition;
+        OnPosisitionReset();
     }
 
 }
